@@ -17,7 +17,12 @@ int main(void) {
 
     if (choice == 1)
     {
-        pthread_t thread;
+        int threadnumber;
+        printf("How many threads would you like to use.");
+        scanf("%i", &threadnumber);
+        for (int i = 0; i < threadnumber; i++)
+        {
+            pthread_t thread;
         int thread_create = pthread_create(&thread, NULL, fputest1, NULL);
 
         if (!thread_create)
@@ -28,6 +33,8 @@ int main(void) {
 
         fprintf("%s\n", strerror(thread_create), stderr);
         return 1;
+        }
+        
     }
 }
 
