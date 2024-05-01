@@ -23,18 +23,17 @@ int main(void) {
         for (int i = 0; i < threadnumber; i++)
         {
             pthread_t thread;
-        int thread_create = pthread_create(&thread, NULL, fputest1, NULL);
+            int thread_create = pthread_create(&thread, NULL, fputest1, NULL);
 
-        if (!thread_create)
-        {
-            pthread_join(thread, NULL);
-            return 0;
-        }
+            if (!thread_create)
+            {
+                pthread_join(thread, NULL);
+                return 0;
+            }
 
-        fprintf("%s\n", strerror(thread_create), stderr);
-        return 1;
+            fprintf("%s\n", strerror(thread_create), stderr);
+            return 1;
         }
-        
     }
 }
 
